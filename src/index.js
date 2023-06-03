@@ -2,10 +2,9 @@ import { oak } from './deps.js';
 
 const router = new oak.Router();
 
-(async () => {
-  Promise.all(Array.from(Deno.readDirSync(Deno.cwd() + '/src/events')).map(file => import(`./events/${file.name}`)))
-    .then(console.log);
-})();
+const routes = Array.from(Deno.readDirSync(Deno.cwd() + '/src/events'))
+Promise.all(routes.map(ctx => import(`./events/${file.name}`)))
+  .then(console.log);
 
 const app = new oak.Application();
 
