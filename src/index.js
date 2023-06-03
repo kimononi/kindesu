@@ -2,7 +2,7 @@ import { oak } from './deps.js';
 
 const router = new oak.Router();
 
-for await (const file of Deno.readDir(Deno.cwd() + '/src/routes')) {
+for (const file of Deno.readDirSync(Deno.cwd() + '/src/routes')) {
   const { default: route } = await import(`./routes/${file.name}`);
   router.add(route.method, route.path, route.execute);
 }
