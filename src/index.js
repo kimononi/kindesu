@@ -3,7 +3,7 @@ import { oak } from './deps.js';
 const router = new oak.Router();
 
 const routes = Array.from(Deno.readDirSync(Deno.cwd() + '/src/events'))
-Promise.all(routes.map(ctx => import(`./events/${file.name}`)))
+Promise.all(routes.map(ctx => import(`./events/${ctx.name}`)))
   .then(console.log);
 
 const app = new oak.Application();
