@@ -1,9 +1,9 @@
 import { nacl, oak } from '../deps.js';
 
 export default {
-  path: "/interaction/:publicKey/:token",
+  path: "/interaction",
   method: "POST",
-  async execute(ctx) {
+  async execute({ ctx, branch }) {
     const body = await ctx.request.body({ type: 'text' }).value;
     const timestamp = ctx.request.headers.get('x-signature-timestamp');
     const signature = ctx.request.headers.get('x-signature-ed25519');
@@ -11,7 +11,7 @@ export default {
     const valid = await nacl.sign.detached.verify(
       new TextEncoder().encode(timestamp + body),
       hexEncode(signature),
-      hexEncode(ctx.params.publicKey);
+      hexEncode(Deno.env.get(`${branch}_PUBLIC_KEY`));
     );
     
     if (!valid) {
@@ -22,7 +22,7 @@ export default {
         const event = await import(`../events/${file.name}`);
         const interaction = JSON.parse(body);
         
-        if (event.type === interaction.type) return await event.execute(ctx);
+        if (event.type === interaction.type) return await event.execute({ ctx, branch });
       }
     }
   }
