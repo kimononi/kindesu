@@ -3,10 +3,6 @@ import * as routes from './routes/mod.ts';
 
 const router = new oak.Router();
 
-for (const route of Object.values(routes)) {
-  router.add(route.method, route.path, route.execute)
-};
-
 const app = new oak.Application({ proxy: true });
 
 app.use(router.routes());
