@@ -1,9 +1,9 @@
 import { oak } from './deps.js';
-import routes from './routes/mod.ts';
+import * as routes from './routes/mod.ts';
 
 const router = new oak.Router();
 
-for await (const route of Object.values(routes)) {
+for await (const { default: route } of Object.values(routes)) {
   router.add(route.method, route.path, route.execute)
 };
 
