@@ -1,11 +1,11 @@
 import { oak } from './deps.js';
+import routes from './routes/mod.ts';
 
 const router = new oak.Router();
 
-const dir = Array.from(Deno.readDirSync(Deno.cwd() + '/src/events'))
-  .filter(file => file.name.endsWith('.js'));
-Promise.all(dir.map(file => import(`./events/${file.name}`)))
-  .then(console.log);
+for await (const { default: route } of Object.values(routes)) {
+  router.add(route.method, route.path, route.execute)
+};
 
 const app = new oak.Application({ proxy: true });
 
