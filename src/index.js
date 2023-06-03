@@ -3,7 +3,7 @@ import routes from './routes/mod.ts';
 
 const router = new oak.Router();
 
-for await (const { default: route } of Object.values(routes)) {
+for await (const route of Object.values(routes)) {
   router.add(route.method, route.path, route.execute)
 };
 
