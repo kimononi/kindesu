@@ -16,7 +16,10 @@ export default {
       
       const deployRequest = await fetch(discord.RouteBases.api + discord.Routes.applicationCommands(Deno.env.get(`${branch}_ID`)), {
         method: 'PUT',
-        headers: { Authorization: `Bot ${Deno.env.get(`${branch}_TOKEN`)}` },
+        headers: {
+          Authorization: `Bot ${Deno.env.get(`${branch}_TOKEN`)}`,
+          'content-type': 'application/json'
+        },
         body
       });
       const deployResult = await deployRequest.json();
