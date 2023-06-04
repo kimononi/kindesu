@@ -5,8 +5,8 @@ export default {
   path: "/interaction",
   method: "POST",
   async execute(ctx) {
-    console.log('interaction route reached!');
-    const branch = ctx.request.url.host.split('--')[1].split('.deno.dev')[0].toUpperCase();
+    return console.log(nacl);
+    const branch = ctx.request.url.includes('--') ? ctx.request.url.host.split('--')[1].split('.deno.dev')[0].toUpperCase() : 'PROD';
     
     const body = await ctx.request.body({ type: 'text' }).value;
     const timestamp = ctx.request.headers.get('x-signature-timestamp');
