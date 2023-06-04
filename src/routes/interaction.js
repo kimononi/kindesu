@@ -5,7 +5,7 @@ export default {
   path: "/interaction",
   method: "POST",
   async execute(ctx) {
-    return console.log(nacl);
+    console.log(nacl);
     const branch = ctx.request.url.host.includes('--') ? ctx.request.url.host.split('--')[1].split('.deno.dev')[0].toUpperCase() : 'PROD';
     
     const body = await ctx.request.body({ type: 'text' }).value;
