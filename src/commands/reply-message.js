@@ -23,7 +23,7 @@ export default {
               {
                 type: discord.ComponentType.TextInput,
                 custom_id: 'content',
-                label: `Pesan untuk ${target.author.username} (⁠*\⁠´⁠ω\⁠｀⁠*⁠)`,
+                label: '⌗  Pesan untuk ' + target.author.username + ' (⁠*⁠´⁠ω⁠｀⁠*⁠)',
                 placeholder: 'halo~',
                 style: discord.TextInputStyle.Paragraph
               }
