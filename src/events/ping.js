@@ -1,4 +1,4 @@
-import { discord } from './deps.js';
+import { discord } from '../deps.js';
 
 export default {
   type: discord.InteractionType.Ping,
