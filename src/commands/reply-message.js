@@ -15,7 +15,7 @@ export default {
       type: discord.InteractionResponseType.Modal,
       data: {
         title: '🍥゛Bales pesan (⁠*⁠´⁠ω⁠｀⁠*⁠)',
-        custom_id: targetId,
+        custom_id: 'reply_message',
         components: [
           {
             type: discord.ComponentType.ActionRow,
