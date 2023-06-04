@@ -1,5 +1,5 @@
 import { oak } from './deps.js';
-import routes from './routes/mod.js';
+import * as routes from './routes/mod.js';
 
 const router = new oak.Router();
 
