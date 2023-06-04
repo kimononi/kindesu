@@ -16,20 +16,20 @@ export default {
       data: {
         title: '🍥゛Bales pesan (⁠*⁠´⁠ω⁠｀⁠*⁠)',
         custom_id: targetId,
-        components: [{
+        components: [
           {
             type: discord.ComponentType.ActionRow,
             components: [
               {
                 type: discord.ComponentType.TextInput,
                 custom_id: 'content',
-                label: '⌗  Pesan untuk ' + target.author.username + ' (⁠*⁠´⁠ω⁠｀⁠*⁠)',
+                label: `⌗  Bales pesan ny ${target.author.username} (⁠*⁠´⁠ω⁠｀⁠*⁠)`,
                 placeholder: 'halo~',
                 style: discord.TextInputStyle.Paragraph
               }
             ]
           }
-        }]
+        ]
       }
     };
   }
