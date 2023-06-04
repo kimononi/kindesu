@@ -18,7 +18,7 @@ export default {
         headers: { Authorization: `Bot ${Deno.env.get(`${branch}_TOKEN`)}` },
         body
       });
-      const deployResult = await deployRequest.body();
+      const deployResult = await deployRequest.json();
       
       ctx.response.body = JSON.stringify(deployResult, null, ' ');
     }
