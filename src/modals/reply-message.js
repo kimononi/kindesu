@@ -22,7 +22,7 @@ export default {
       type: discord.InteractionResponseType.ChannelMessageWithSource,
       data: {
         flags: discord.MessageFlags.Ephemeral,
-        content: replyResult ? `🍥゛Gagal membalas pesan.\n\`\`\`js\n${JSON.stringify(replyResult, null, '  ')}\`\`\`` : `🦦゛Pesan dibalas!`
+        content: ('code' in replyResult) ? `🍥゛Gagal membalas pesan.\n\`\`\`js\n${JSON.stringify(replyResult, null, '  ')}\`\`\`` : `🦦゛Pesan dibalas!`
       }
     }
   }
