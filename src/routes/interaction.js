@@ -4,7 +4,9 @@ import * as events from '../events/mod.js';
 export default {
   path: "/interaction",
   method: "POST",
-  async execute({ ctx, branch }) {
+  async execute(ctx) {
+    const branch = ctx.request.url.host.split('--')[1].split('.deno.dev')[0].toUpperCase();
+    
     const body = await ctx.request.body({ type: 'text' }).value;
     const timestamp = ctx.request.headers.get('x-signature-timestamp');
     const signature = ctx.request.headers.get('x-signature-ed25519');
