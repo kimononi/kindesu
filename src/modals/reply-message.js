@@ -21,7 +21,8 @@ export default {
     ctx.response.body = {
       type: discord.InteractionResponseType.ChannelMessageWithSource,
       data: {
-        content: `🦦゛Pesan dibalas! Output ada dibawah:\n\`\`\`js\n${JSON.stringify(replyResult, null, ' ')}\`\`\``
+        flags: discord.MessageFlags.Ephemeral,
+        content: `🦦゛Pesan dibalas! Output ada dibawah:\n\`\`\`js\n${JSON.stringify(replyResult, null, '  ')}\`\`\``
       }
     }
   }
