@@ -10,9 +10,11 @@ export default {
     if (!isAllowed) {
       return ctx.response.redirect('/');
     } else {
-      console.log('executing deploy');
       const branch = ctx.request.url.host.includes('--') ? ctx.request.url.host.split('--')[1].split('.deno.dev')[0].toUpperCase() : 'PROD';
       const body = Object.values(commands).map(cmd => cmd.default.data);
+      
+      ctx.response.body = JSON.stringify(body, null, ' ');
+      return;
       
       const deployRequest = await fetch(discord.RouteBases.api + discord.Routes.applicationCommands(Deno.env.get(`${branch}_ID`)), {
         method: 'PUT',
