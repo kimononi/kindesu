@@ -4,6 +4,7 @@ export default {
   custom_id: 'reply_message',
   async execute({ ctx, interaction, branch }) {
     const input = interaction.data.components[0].components[0];
+    console.log(input);
     
     const replyRequest = await fetch(discord.RouteBases.api + discord.Routes.channelMessages(interaction.channel_id), {
       method: 'POST',
@@ -21,7 +22,6 @@ export default {
     ctx.response.body = {
       type: discord.InteractionResponseType.ChannelMessageWithSource,
       data: {
-        flags: discord.MessageFlags.Ephemeral,
         content: `🦦゛Pesan dibalas! Output ada dibawah:\n\`\`\`js\n${JSON.stringify(replyResult, null, '  ')}\`\`\``
       }
     }
