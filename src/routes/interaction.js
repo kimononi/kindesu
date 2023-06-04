@@ -18,12 +18,7 @@ export default {
       ctx.response.body = 'Invalid Request!';
       ctx.response.status = oak.Status.Unauthorized;
     } else {
-      for await (const file of Deno.readDir(Deno.cwd() + '/src/events')) {
-        const { default: event } = await import(`../events/${file.name}`);
-        const interaction = JSON.parse(body);
-        
-        if (event.type === interaction.type) return await event.execute({ ctx, branch });
-      }
+      
     }
   }
 };
