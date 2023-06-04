@@ -22,7 +22,7 @@ export default {
             components: [
               {
                 type: discord.ComponentType.TextInput,
-                custom_id: 'content',
+                custom_id: targetId,
                 label: `⌗  Bales pesan ny ${target.author.username} (⁠*⁠´⁠ω⁠｀⁠*⁠)`,
                 placeholder: 'halo~',
                 style: discord.TextInputStyle.Paragraph
