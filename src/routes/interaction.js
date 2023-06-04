@@ -1,4 +1,5 @@
 import { nacl, oak } from '../deps.js';
+import * as events from '../events/mod.js';
 
 export default {
   path: "/interaction",
@@ -18,7 +19,9 @@ export default {
       ctx.response.body = 'Invalid Request!';
       ctx.response.status = oak.Status.Unauthorized;
     } else {
-      
+      const interaction = JSON.parse(body);
+      const event = Object.values(events).find(evt => evt.default.type === interaction.type);
+      if (event) return await event.default.execute({ ctx, branch, interaction });
     }
   }
 };
