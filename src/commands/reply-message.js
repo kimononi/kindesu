@@ -9,7 +9,6 @@ export default {
     default_member_permissions: (discord.PermissionFlagsBits.Administrator).toString()
   },
   async execute({ ctx, interaction, branch }) {
-    console.log('command executed');
     const [targetId, target] = Object.entries(interaction.data.resolved.messages)[0];
     
     ctx.response.body = {
