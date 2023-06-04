@@ -5,7 +5,7 @@ export default {
   path: "/interaction",
   method: "POST",
   async execute(ctx) {
-    const branch = ctx.request.url.host.split('--')[1].split('.deno.dev')[0].toUpperCase();
+    const branch = ctx.request.url.host.includes('--') ? ctx.request.url.host.split('--')[1].split('.deno.dev')[0].toUpperCase() : 'PROD';
     
     const body = await ctx.request.body({ type: 'text' }).value;
     const timestamp = ctx.request.headers.get('x-signature-timestamp');
@@ -16,7 +16,6 @@ export default {
       hexEncode(signature),
       hexEncode(Deno.env.get(`${branch}_PUBLIC_KEY`))
     );
-    
     if (!valid) {
       ctx.response.body = 'Invalid Request!';
       ctx.response.status = oak.Status.Unauthorized;
