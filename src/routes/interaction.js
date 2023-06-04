@@ -11,7 +11,7 @@ export default {
     const valid = await nacl.sign.detached.verify(
       new TextEncoder().encode(timestamp + body),
       hexEncode(signature),
-      hexEncode(Deno.env.get(`${branch}_PUBLIC_KEY`));
+      hexEncode(Deno.env.get(`${branch}_PUBLIC_KEY`))
     );
     
     if (!valid) {
