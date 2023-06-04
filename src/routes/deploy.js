@@ -10,6 +10,7 @@ export default {
     if (!isAllowed) {
       return ctx.response.redirect('/');
     } else {
+      console.log('executing deploy');
       const branch = ctx.request.url.host.includes('--') ? ctx.request.url.host.split('--')[1].split('.deno.dev')[0].toUpperCase() : 'PROD';
       const body = Object.values(commands).map(cmd => cmd.default.data);
       
