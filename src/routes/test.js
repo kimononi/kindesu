@@ -18,7 +18,17 @@ export default {
         'content-type': 'application/json'
       },
       body: JSON.stringify({
-        content: `## Verifikasi! <:hutao_hug:1115203254771535903>\n** **\n> Sebelum verifikasi, pastikan kamu udah baca\n> <#969506184199540796> disini dan siap menerima hukuman apabila kamu melanggar peraturan\n** **\n* Saat verifikasi, kamu akan diberikan 3 buah pertanyaan, jika kamu berhasil maka kamu akan lolos dan bisa bergabung ke server ini, good luck🤞`
+        content: `## Verifikasi! <:hutao_hug:1115203254771535903>\n** **\n> Sebelum verifikasi, pastikan kamu udah baca\n> <#969506184199540796> disini dan siap menerima hukuman apabila kamu melanggar peraturan\n** **\n* Saat verifikasi, kamu akan diberikan 3 buah pertanyaan, jika kamu berhasil maka kamu akan lolos dan bisa bergabung ke server ini, good luck🤞`,
+        components: [{
+          type: discord.ComponentType.ActionRow,
+          components: [{
+            type: discord.ComponentType.Button,
+            custom_id: 'verification',
+            label: 'Hajimeru~',
+            style: discord.ButtonStyle.Primary,
+            emoji: { animated: true, id: '1115209084434649118', name: 'catto' }
+          }]
+        }]
       })
     });
     const testResult = await testRequest.json();
