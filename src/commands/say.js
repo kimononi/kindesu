@@ -21,6 +21,10 @@ export default {
         type: discord.InteractionResponseType.ApplicationCommandAutocompleteResult,
         data: { choices: [] }
       };
+      await fetch(discord.RouteBases.api + discord.Routes.channelTyping(interaction.channel_id), {
+        method: 'POST',
+        headers: { Authorization: `Bot ${Deno.env.get(`${branch}_TOKEN`)}` }
+      });
     } else {
       
     }
