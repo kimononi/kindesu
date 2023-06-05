@@ -1,8 +1,0 @@
-{
-  "PROD": {
-    "verificationChannel": "1115064050875891742",
-  },
-  "CANARY": {
-    "verificationChannel": "1115194663872253992"
-  }
-}
