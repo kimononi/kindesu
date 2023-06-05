@@ -18,7 +18,7 @@ export default {
         'content-type': 'application/json'
       },
       body: JSON.stringify({
-        content: `## Verifikasi!\n>>> Sebelum verifikasi, pastikan kamu udah baca\n<#969506184199540796> disini dan siap menerima hukuman apabila kamu melanggar peraturan`
+        content: `## Verifikasi! <:hutao_hug:1115203254771535903>\n\n>>> Sebelum verifikasi, pastikan kamu udah baca\n<#969506184199540796> disini dan siap menerima hukuman apabila kamu melanggar peraturan`
       })
     });
     const testResult = await testRequest.json();
