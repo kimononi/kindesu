@@ -1,5 +1,5 @@
 import { discord } from '../deps.js';
-import rawConfig from '../config.json' assert { type: 'json' };
+import rawConfig from '../config.js' assert { type: 'json' };
 
 export default {
   method: 'GET',
