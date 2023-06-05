@@ -25,7 +25,7 @@ export default {
             type: discord.ComponentType.Button,
             custom_id: 'verification',
             label: 'Hajimeru~',
-            style: discord.ButtonStyle.Primary,
+            style: discord.ButtonStyle.Secondary,
             emoji: { animated: true, id: '1115209084434649118', name: 'catto' }
           }]
         }]
