@@ -17,6 +17,7 @@ export default {
   },
   async execute({ ctx, interaction, branch }) {
     if (interaction.type === discord.InteractionType.ApplicationCommandAutocomplete) {
+      console.log('autocomplete executed');
       ctx.response.body = {
         type: discord.InteractionResponseType.ApplicationCommandAutocompleteResult,
         data: { choices: [] }
