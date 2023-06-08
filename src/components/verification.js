@@ -14,7 +14,7 @@ export async function execute({ ctx }) {
   const payload = await fetch(baseURL)
     .then(res => res.json());
   const asset = await fetch(baseURL + `asset/${payload.id}`)
-    .then(res => res.blob());
+    .then(async res => await res.blob());
   
   console.log(payload);
   console.log(asset);
