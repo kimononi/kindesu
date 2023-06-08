@@ -1,9 +1,11 @@
 import { 
+  ComponentType,
   InteractionResponseType,
   MessageFlags
 } from "discord_api_types/v10.ts";
 
 export const custom_id = "verification";
+export const type = ComponentType.Button;
 
 export async function execute({ ctx }) {
   const quiz = await fetch("https://iciepex-nori-quiz.deno.dev/")
