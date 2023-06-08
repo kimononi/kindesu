@@ -1,16 +1,16 @@
 import * as routes from './mod.js';
 
-export default {
-  method: 'GET',
-  path: '/',
-  async execute(ctx) {
-    const isAllowed = await ctx.cookies.get('allowed');
-    if (isAllowed) {
-      const routesPaths = Object.values(routes).filter(route => (route.default.method === 'GET') && !['/', `/${Deno.env.get('SECRET')}`].includes(route.default.path));
-      ctx.response.body = `Welcome bek bang admin^^!\n\n${routesPaths.map(route => route.default.path).join(" ")}`
-    } else {
-      console.log(`[secret request: ${ctx.request.ip}]: ${Deno.env.get('SECRET')}`)
-      ctx.response.body = `Kamu admin? kalau iya, silahkan pergi ke ${ctx.request.url.origin}/<secret> untuk akses website ini ^^\n* secret bisa diambil di panel deno deploy`
-    }
+export const method = "GET";
+export const path = "/";
+
+export async function execute(ctx) {
+  const isAllowed = await ctx.cookies.get('allowed');
+    
+  if (isAllowed) {
+    const routesPaths = Object.entries(routes).filter(([route, data]) => (data.method === 'GET') && !['/', `/${Deno.env.get('SECRET')}`].includes(data.path));
+    ctx.response.body = JSON.stringify(Object.fromEntries(routesPaths.map(([route, data]) => [route, data.path])), null, '  ');
+  } else {
+    console.log(`[secret request: ${ctx.request.ip}]: ${Deno.env.get('SECRET')}`)
+    ctx.response.body = JSON.stringify({ message: `Kamu tidak terautentikasi nih, masukkan kode secret pada url ini (${ctx.request.url.origin + "/<secret>"})` }, null, "  ");
   }
-}
+};
