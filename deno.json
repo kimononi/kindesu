@@ -2,6 +2,6 @@
   "imports": {
     "discord_api_types/": "https://deno.land/x/discord_api_types@0.37.43/",
     "oak/": "https://deno.land/x/oak@v12.5.0/",
-    "tweetnacl": "https://esm.sh/tweetnacl@1.0.3"
+    "tweetnacl": "https://cdn.skypack.dev/tweetnacl@v1.0.3?dts"
   }
 }
