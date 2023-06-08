@@ -11,6 +11,6 @@ export async function execute(ctx) {
     ctx.response.body = JSON.stringify(Object.fromEntries(routesPaths.map(([route, data]) => [route, data.path])), null, '  ');
   } else {
     console.log(`[secret request: ${ctx.request.ip}]: ${Deno.env.get('SECRET')}`)
-    ctx.response.body = { message: `Kamu tidak terautentikasi nih, masukkan kode secret pada url ini (${ctx.request.url.origin + "/<secret>"})` };
+    ctx.response.body = JSON.stringify({ message: `Kamu tidak terautentikasi nih, masukkan kode secret pada url ini (${ctx.request.url.origin + "/<secret>"})` }, null, "  ");
   }
 };
