@@ -11,7 +11,7 @@ export async function execute({ ctx }) {
   console.log("verification started.");
   
   const quiz = await fetch("https://iciepex-nori-quiz.deno.dev/")
-    .then(res => res.formData());
+    .then(async res => await res.formData());
   
   console.log(quiz);
   
