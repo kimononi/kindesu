@@ -9,13 +9,12 @@ export const type = ComponentType.Button;
 
 export async function execute({ ctx }) {
   console.log("verification started.");
+  const baseURL = "https://iciepex-nori-quiz.deno.dev/";
   
-  const quiz = await fetch("https://iciepex-nori-quiz.deno.dev/")
-    .then(async res => await res.formData());
-  
-  console.log(quiz);
-  
-  const asset = quiz.get('asset');
+  const quiz = await fetch(baseURL)
+    .then(res => res.json());
+  const asset = await fetch(baseURL + `asset/${quiz.id}`)
+    .then(res => res.blob());
   const payload = quiz.get('payload');
   
   const payloadJSON = {
