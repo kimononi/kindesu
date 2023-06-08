@@ -1,10 +1,13 @@
-import { discord } from '../deps.js';
+import {
+  InteractionType,
+  InteractionResponseType
+} from 'discord_api_types/v10.ts';
 
 export default {
-  type: discord.InteractionType.Ping,
+  type: InteractionType.Ping,
   async execute({ ctx }) {
     ctx.response.body = {
-      type: discord.InteractionResponseType.Pong,
+      type: InteractionResponseType.Pong,
     };
   }
 };
