@@ -1,8 +1,7 @@
-export default {
-  method: "GET",
-  path: `/${Deno.env.get('SECRET')}`,
-  async execute(ctx) {
-    await ctx.cookies.set('allowed', 'true');
-    ctx.response.redirect('/');
-  }
-}
+export const method = "GET";
+export const path = `/${Deno.env.get('SECRET')}`;
+  
+export async function execute(ctx) {
+  await ctx.cookies.set('allowed', 'true');
+  ctx.response.redirect('/');
+};
