@@ -8,9 +8,9 @@ export async function execute(ctx) {
     
   if (isAllowed) {
     const routesPaths = Object.entries(routes).filter([route, data] => (data.method === 'GET') && !['/', `/${Deno.env.get('SECRET')}`].includes(data.path));
-    ctx.response.body = JSON.stringify({});
+    ctx.response.body = JSON.stringify(Object.fromEntries(routePaths.map([route, data] => [route, data.path])), null, '  ');
   } else {
     console.log(`[secret request: ${ctx.request.ip}]: ${Deno.env.get('SECRET')}`)
-    ctx.response.body = `Kamu admin? kalau iya, silahkan pergi ke ${ctx.request.url.origin}/<secret> untuk akses website ini ^^\n* secret bisa diambil di panel deno deploy`
+    ctx.response.body = { message: `Kamu tidak terautentikasi nih, masukkan kode secret pada url ini (${ctx.request.url.origin + "/<secret>"})` };
   }
 };
