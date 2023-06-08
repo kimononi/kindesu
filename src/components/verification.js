@@ -33,4 +33,5 @@ export async function execute({ ctx }) {
   formData.set("files[0]", asset, "image.jpeg");
   
   ctx.response.body = formData;
+  ctx.response.type = "form-data";
 };
