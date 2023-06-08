@@ -27,6 +27,6 @@ export async function execute(ctx) {
     });
     const deployResult = await deployRequest.json();
       
-    ctx.response.body = JSON.stringify(deployResult, null, ' ');
+    ctx.response.body = JSON.stringify(deployResult, null, '  ');
   }
 };
