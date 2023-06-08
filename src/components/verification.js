@@ -20,10 +20,6 @@ export async function execute({ ctx }) {
     type: InteractionResponseType.ChannelMessageWithSource,
     data: {
       content: `## ${payload.question}\n${payload.answers.map(({ text }) => `* ${text}`).join("\n")}`,
-      attachments: [{
-        id: "0",
-        filename: "image.jpeg"
-      }],
       flags: MessageFlags.Ephemeral
     }
   };
