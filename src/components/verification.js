@@ -16,6 +16,9 @@ export async function execute({ ctx }) {
   const asset = await fetch(baseURL + `asset/${payload.id}`)
     .then(res => res.blob());
   
+  console.log(payload);
+  console.log(asset);
+  
   const payloadJSON = {
     type: InteractionResponseType.ChannelMessageWithSource,
     data: {
