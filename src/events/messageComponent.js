@@ -6,6 +6,7 @@ export const type = InteractionType.MessageComponent;
 export async function execute({ ctx, interaction, branch }) {
   console.log("component used.");
   console.log(Object.values(components));
+  console.log(interaction.data);
   
   const component = Object.values(components).find(component => component.custom_id === interaction.data.custom_id && component.type === interaction.data.type);
   console.log(component);
