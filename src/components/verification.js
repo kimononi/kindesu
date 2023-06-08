@@ -31,7 +31,7 @@ export async function execute({ ctx }) {
   const formData = new FormData();
   
   formData.set("payload_json", JSON.stringify(payloadJSON));
-  formData.set("files[0]", asset, "image.jpeg");
+  // formData.set("files[0]", asset, "image.jpeg");
   
   ctx.response.body = formData;
   ctx.response.type = "undefined";
