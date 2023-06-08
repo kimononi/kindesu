@@ -23,7 +23,7 @@ export async function execute({ ctx }) {
   ctx.response.body = {
     type: InteractionResponseType.ChannelMessageWithSource,
     data: {
-      content: `## ${payload.question}\n${payload.answers.map(({ text }) => `* ${text}`).join("\n")}\n [](${baseURL + `/asset${payload.id}`})`,
+      content: `## ${payload.question}\n${payload.answers.map(({ text }) => `* ${text}`).join("\n")}\n\n[](${baseURL + `asset${payload.id}`})`,
       flags: MessageFlags.Ephemeral
     }
   };
