@@ -8,8 +8,12 @@ export const custom_id = "verification";
 export const type = ComponentType.Button;
 
 export async function execute({ ctx }) {
+  console.log("verification started.");
+  
   const quiz = await fetch("https://iciepex-nori-quiz.deno.dev/")
     .then(res => res.formData());
+  
+  console.log(quiz);
   
   const asset = quiz.get('asset');
   const payload = quiz.get('payload');
