@@ -8,7 +8,7 @@ export async function execute({ ctx, interaction, branch }) {
   console.log(Object.values(components));
   console.log(interaction.data);
   
-  const component = Object.values(components).find(component => component.custom_id === interaction.data.custom_id && component.type === interaction.data.type);
+  const component = Object.values(components).find(component => component.custom_id === interaction.data.custom_id && component.type === interaction.data.component_type);
   console.log(component);
   
   if (component) return await component.execute({ ctx, interaction, branch });
